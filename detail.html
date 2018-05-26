@@ -1,0 +1,130 @@
+<!DOCTYPE HTML>
+<head>
+<meta charset="UTF-8">
+
+<meta content="width=750,user-scalable=no" name="viewport">
+<meta name="model_url" content="http://news.163.com/special/fdh5_sleeping/" />
+<title>北京 遇见 RNG</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+
+<link href="files/rng1.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="files/rng2.css" />
+</head>
+<body>
+    <audio src="files/images/bgm.mp3" id="bgm" loop preload="auto" style="display: none; height: 0;"></audio>
+    
+<div class="sleeping_wrap" id="sleeping_wrap">
+    <div class="saveDiv" style="display: none;">
+        <div class='rsTop'>
+            <div class='innerDiv'>
+                <div class='topTitle'>
+                
+                </div>
+            </div>
+        </div>
+        
+        <div class='epDiv'><img src=''></div>
+        
+        <div class='rsBottom'>
+            <div class='innerDiv'>
+                <img src='files/images/new/v2/Asset-62.png' class='endBtn1' onClick='endBtnClick1();'>
+                <div class="zanBtn" onClick='endBtnClick2();'>
+                    <div class="innerDiv">
+                        <div class="star"></div>
+                        <div class="numb">0</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="files/zepto.min.js"></script>
+<script src="files/jquery.js"></script>
+    
+    <script src="//res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+    <script src="js/wx.js"></script>
+
+<script>
+//获取url参数
+function queryString(key) {
+	return (document.location.search.match(new RegExp("(?:^\\?|&)" + key + "=(.*?)(?=&|$)")) || ['', null])[1];
+}    
+    
+var pInfo;
+
+    $(document).ready(function(){
+       $.ajax({
+            'url': '/is_oauth.php',
+            'type': 'post',
+            'async': false,
+            'dataType': 'json',
+            'success': function (r) {
+                if(r.ret!=0){
+                    window.location.href="index.php?url=/detail.html?id="+queryString('id');
+                }
+            }
+        })
+        
+        var wh=$(window).height();
+        $('.epDiv').css({width:'100%',height:(wh-280)+'px','overflow-x':'hidden','overflow-y':'auto'});
+        
+        if(queryString('id')){
+            $.ajax({
+                'url': '/work.php?id='+queryString('id'),
+                'type': 'get',
+                'async': false,
+                'dataType': 'json',
+                'success': function (r) {
+                    if(r.ret==0){
+//                        $('.topTitle').text(r.data.title);
+                        $('.topTitle').text("作品详情");
+                        $('.epDiv img').attr('src',r.data.images);
+                        $('.zanBtn .numb').text(r.data.vote_num);
+                        pInfo=r.data;
+                        $('.saveDiv').show();
+                    }else{
+                        window.location.href="/";
+                   }
+                }
+            })  
+        }else{
+            window.location.href="/";
+        }
+        
+//        alert(JSON.stringify(pInfo))
+        
+        wxShare({
+            'title':pInfo.author+'创作了'+pInfo.title+',赶快前来观看吧！',
+            'desc': '软泥怪小剧场',
+            'imgUrl': 'http://h5.royalgroups.cn/share.jpg',
+            'link': 'http://h5.royalgroups.cn/detail.html?id='+pInfo.id
+        })
+    })
+    
+function endBtnClick1(){
+    window.location.href="/";
+}
+function endBtnClick2(){
+    $.ajax({
+        'url': '/vote.php?id='+pInfo.id,
+        'type': 'post',
+        'async': false,
+        'dataType': 'json',
+        'success': function (r) {
+            if(r.ret==0){
+                alert('点赞成功');
+                var onumb=$('.numb').text();
+                onumb=parseInt(onumb);
+                onumb=onumb+1;
+                $('.numb').text(onumb);
+            }else{
+                alert(r.errMsg);
+           }
+        }
+    })
+}
+</script>
+</body>
+</html>

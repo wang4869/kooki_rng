@@ -1,0 +1,222 @@
+<!DOCTYPE HTML>
+<head>
+<meta charset="UTF-8">
+
+<meta content="width=750,user-scalable=no" name="viewport">
+<meta name="model_url" content="http://news.163.com/special/fdh5_sleeping/" />
+<title>北京 遇见 RNG</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+
+<link href="files/rng1.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="files/rng2.css" />
+</head>
+<body>
+    <audio src="files/images/bgm.mp3" id="bgm" loop preload="auto" style="display: none; height: 0;"></audio>
+    
+<div class="sleeping_wrap" id="sleeping_wrap">
+    <div class="list">
+        <div class='rsTop'>
+            <div class='innerDiv'>
+                <img src="files/images/new/v2/Asset-15.png" class="btnBack" onClick="backDetial();" style="display: none;">
+                <img src="files/images/new/v2/Asset-15.png" class="btnBack2" onClick="backIndex();" style="display: none;">
+                <div class='topTitle'>
+                    排行榜
+                </div>
+            </div>
+        </div>
+        <div class="elDiv">
+<!--
+            <div class="elInit">
+                <div class="leftImg">
+                    <div class='liDiv'>
+                        <img src="files/images/new/logov.png">
+                    </div>
+                </div>
+                <div class="leftTxt">
+                    <div class="ltTItle">作品名称</div>
+                    <div class="ltName">作者:XXX</div>
+                    <div class="ltNumb"><span>8000</span> 票</div>
+                </div>
+                <div class="rigtNumb">
+                    No<span>1</span>
+                </div>
+            </div>
+-->
+        </div>
+        <div class='rsBottom'>
+            <div class='innerDiv'>
+                <img src='files/images/new/v2/Asset-57.png' class='endBtn1' onClick='endBtnClick4();'>
+                <img src='files/images/new/v2/v3/Asset-124.png' class='endBtn2' onClick='endBtnClick3();'>
+            </div>
+        </div>
+    </div>
+    <div class="saveDiv dsDiv" style="display: none;">
+        <div class='rsTop'>
+            <div class='innerDiv'>
+                <div class='topTitle topTitle2'>
+                
+                </div>
+            </div>
+        </div>
+        
+        <div class='epDiv'><img src=''></div>
+        
+        <div class='rsBottom'>
+            <div class='innerDiv'>
+                <img src='files/images/new/v2/v3/Asset-91.png' class='endBtn1' onClick='endBtnClick1();'>
+                <div class="zanBtn" onClick='endBtnClick2();' rid="">
+                    <div class="innerDiv">
+                        <div class="star"></div>
+                        <div class="numb">0</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    
+<div class="rule" style="display: none;">
+    <div class="ruleImg">
+        <div class="innerDiv">
+            <div class="ruleClose"  ontouchend="$('.rule').fadeOut(700);"></div>
+        </div>
+    </div>    
+</div>
+
+<script src="files/zepto.min.js"></script>
+<script src="files/jquery.js"></script>
+<script src="files/jquery.lazyload.js"></script>
+    
+    <script src="//res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+    <script src="js/wx.js"></script>
+
+<script>
+//获取url参数
+function queryString(key) {
+	return (document.location.search.match(new RegExp("(?:^\\?|&)" + key + "=(.*?)(?=&|$)")) || ['', null])[1];
+}    
+    
+var listInfo={};
+var rid;
+
+    $(document).ready(function(){
+       $.ajax({
+            'url': '/is_oauth.php',
+            'type': 'post',
+            'async': false,
+            'dataType': 'json',
+            'success': function (r) {
+                if(r.ret!=0){
+                    window.location.href="index.php?url=/list.html";
+                }
+            }
+        })
+        
+        $.ajax({
+            'url': '/works.php',
+            'type': 'get',
+            'async': false,
+            'dataType': 'json',
+            'success': function (r) {
+                listInfo.total=r.total;
+                listInfo.current_page=r.current_page;
+                listInfo.per_page=r.per_page;
+                if(r.data&&r.data.length>0){
+                    for(var i=0,iLen=r.data.length;i<iLen;i++){
+                        var idiv="<div class='elInit' rid='"+r.data[i].id+"' rname='"+r.data[i].author+"' onclick='showDetail(this);'><div class='leftImg'><div class='liDiv'><img class='lazyload' data-src='"+r.data[i].images+"'></div></div><div class='leftTxt'><div class='ltTItle'>"+r.data[i].title+"</div><div class='ltName'>作者:"+r.data[i].author+"</div><div class='ltNumb'><span>"+r.data[i].vote_num+"</span> 票</div></div><div class='rigtNumb'>No<span>"+(i+1)+"</span></div></div>"
+                        $('.elDiv').append(idiv);
+                    }
+                    setTimeout(function(){
+                        lazyload();
+                    },200);
+                }else{
+                    $('.elDiv').append("<div class='noneProduct'>没有作品</div>");
+                }
+            }
+        })
+        
+        var wh=$(window).height();
+        $('.epDiv,.elDiv').css({width:'100%',height:(wh-280)+'px','overflow-x':'hidden','overflow-y':'auto'});
+        
+        rid=queryString('id');
+        if(rid){
+            $('.btnBack').show();
+        }else{
+            $('.btnBack2').show();
+        }
+    
+        wxShare({
+                'title': '北京 遇见 RNG',
+                'desc': '软泥怪小剧场',
+                'imgUrl': 'http://h5.royalgroups.cn/share.jpg',
+                'link': 'http://h5.royalgroups.cn'
+            })
+    })
+    
+function backIndex(){
+    window.location.href="/";
+}
+    
+function endBtnClick3(){
+//    window.location.href="/";
+    $('.rule').fadeIn(700);
+}
+    
+function endBtnClick4(){
+    window.location.href="my.html";
+}
+    
+function backDetial(){
+    window.location.href="detail.html?id="+rid;
+}
+    
+function showDetail(e){
+    var rid=$(e).attr('rid');
+//    $('.topTitle2').text($(e).find('.ltTItle').text());
+    $('.topTitle2').text('作品详情');
+    $('.epDiv img').attr('src',$(e).find('.leftImg img').attr('data-src'));
+    $('.zanBtn .numb').text($(e).find('.ltNumb span').text());
+    $('.zanBtn').attr('rid',rid);
+    $('.saveDiv').show();
+    
+    wxShare({
+        'title':$(e).attr('rname')+'创作了'+$(e).find('.ltTItle').text()+',赶快前来观看吧！',
+        'desc': '软泥怪小剧场',
+        'imgUrl': 'http://h5.royalgroups.cn/share.jpg',
+        'link': 'http://h5.royalgroups.cn/detail.html?id='+rid
+    })
+}
+    
+function endBtnClick1(){
+    $('.saveDiv').fadeOut(700);
+    wxShare({
+                'title': '北京 遇见 RNG',
+                'desc': '软泥怪小剧场',
+                'imgUrl': 'http://h5.royalgroups.cn/share.jpg',
+                'link': 'http://h5.royalgroups.cn'
+            })
+}
+function endBtnClick2(){
+    var zid=$('.zanBtn').attr('rid');
+    $.ajax({
+        'url': '/vote.php?id='+zid,
+        'type': 'post',
+        'async': false,
+        'dataType': 'json',
+        'success': function (r) {
+            if(r.ret==0){
+                alert('点赞成功');
+                var onumb=$('.numb').text();
+                onumb=parseInt(onumb);
+                onumb=onumb+1;
+                $('.numb').text(onumb);
+            }else{
+                alert(r.errMsg);
+           }
+        }
+    })
+}
+</script>
+</body>
+</html>

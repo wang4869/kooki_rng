@@ -1,0 +1,962 @@
+
+<!DOCTYPE HTML>
+<head>
+<meta charset="UTF-8">
+
+<meta content="width=750,user-scalable=no,viewport-fit=cover" name="viewport">
+<meta name="model_url" content="http://news.163.com/special/fdh5_sleeping/" />
+<title>北京 遇见 RNG</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+
+<link href="files/rng1.css" rel="stylesheet" type="text/css" />
+<script src="files/jslib.js" type="text/javascript" charset="gb2312"></script>
+<script src="files/rng.js"></script>
+<link rel="stylesheet" href="files/rng2.css" />
+<!--
+    <script>
+        setTimeout(function(){
+            $('.start').click();
+        },500)
+    </script>
+-->
+</head>
+<body>
+    <audio src="files/images/bgm.mp3" id="bgm" loop preload="auto" style="display: none; height: 0;"></audio>
+    
+  <div class="sleeping_wrap" id="sleeping_wrap">
+	<div class="first_page">
+        <div class="innerDiv">
+            <div class="pageMid">
+                <div class="innerDiv">
+                    <div class="slo"></div>
+                    <div class="sloIcon"></div>
+                    
+                    <div class="indexBtn1" onClick="$('.rule').fadeIn(700);"></div>
+                    <div class="indexBtn2s">
+                        <div class="innerDiv">
+                            <div class="indexBtn3" onClick="window.location.href='/list.html'"></div>
+                            <div class="indexBtn4" onClick="window.location.href='/my.html'"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="start2" ontouchend="start2();"></div>
+                    
+<!--
+                    <div class="proInfo" style="display: none;">
+                        <div class="innerDiv">
+                            <div class="pn">作品名称：<input type="text" maxlength="11"></div>
+                            <div class="pa">作者：<input type="text" maxlength="15"></div>
+                        </div>
+                    </div>
+-->               
+                    <a class="bgmControl bgmControlOn" onClick="controlBgm();"><img src="files/images/new/v2/Asset-6.png" class="bgmOn"><img src="files/images/new/v2/Asset-5.png" class="bgmOff"></a>
+                    <div class="start" style="display: none;"></div>
+                </div>
+            </div>
+            <div class="pageBottom"></div>
+        </div>
+	</div>	
+      
+      <div class="roomSel" style="display: none;">
+          <div class="innerDiv">
+              <div class="rsTop">
+                  <div class="innerDiv">
+                      <img src="files/images/new/v2/v3/Asset-76.png" class="btnBack" onClick="window.location.reload();">
+                      <img src="files/images/new/v2/v3/Asset-77.png" class="btnDone" onClick="$('.note').fadeIn(700);">
+                      <div class="topTitle">场景</div>
+                  </div>
+              </div>
+              <div class="rsContent">
+                  <div class="innerDiv">
+<!--
+                      <img src="files/images/images/listImg1.png" style="position: absolute; top: 0; right: 0;">
+                      <img src="files/images/images/listImg1.png" style="position: absolute; bottom: 0; left: 0;">
+-->
+<!--                      <div class="rsTitle">場景</div>-->
+                      <div class="rsScroll" style="padding-top: 20px;">
+                          <div class="rsInit" relr="0">
+                              <div class="innerDiv">
+                                  <img src="files/images/images/bg1.png">
+<!--                                  <div class="scTxt">護士招聘</div>-->
+                              </div>
+                          </div>
+                          
+                          <div class="rsInit" relr="1">
+                              <div class="innerDiv">
+                                  <img src="files/images/images/bg2.png">
+<!--                                  <div class="scTxt">水管工招聘</div>-->
+                              </div>
+                          </div>
+                          
+                          <div class="rsInit" relr="2">
+                              <div class="innerDiv">
+                                  <img src="files/images/images/bg3.png">
+<!--                                  <div class="scTxt">護塔英雄招募</div>-->
+                              </div>
+                          </div>
+                          
+                          <div class="rsInit" relr="3">
+                              <div class="innerDiv">
+                                  <img src="files/images/images/bg4.png">
+<!--                                  <div class="scTxt">拔劍勇士招募</div>-->
+                              </div>
+                          </div>
+                          
+                          <div class="rsInit" relr="4">
+                              <div class="innerDiv">
+                                  <img src="files/images/images/bg5.png">
+<!--                                  <div class="scTxt">水手招募</div>-->
+                              </div>
+                          </div>
+                          
+                          <div class="rsInit" relr="5">
+                              <div class="innerDiv">
+                                  <img src="files/images/images/bg6.png">
+<!--                                  <div class="scTxt"></div>-->
+                              </div>
+                          </div>
+                          
+                          <div class="rsInit" relr="6">
+                              <div class="innerDiv">
+                                  <img src="files/images/images/bg7.png">
+<!--                                  <div class="scTxt"></div>-->
+                              </div>
+                          </div>
+                          
+                          <div class="rsInit" relr="7">
+                              <div class="innerDiv">
+                                  <img src="files/images/images/bg8.png">
+<!--                                  <div class="scTxt"></div>-->
+                              </div>
+                          </div>
+                          
+                          <div class="rsInit" relr="8">
+                              <div class="innerDiv">
+                                  <img src="files/images/images/bg9.png">
+<!--                                  <div class="scTxt"></div>-->
+                              </div>
+                          </div>
+                          
+                      </div>
+                  </div>
+              </div>
+              <div class="rsBottom"></div>
+          </div>
+      </div>
+      
+      <div class="myComin" style="display: none;">
+          <div class="innerDiv">
+              <div class="toolBar">
+                <div class="innerDiv">
+                    <img src="files/images/new/v2/v3/Asset-76.png" class="btnBack" onClick="backRoomSel();">
+                    <img src="files/images/new/v2/v3/Asset-77.png" class="btnDone" onClick="$('.note').fadeIn(700);">
+                    <div class="pnTitle"></div>
+                </div>
+            </div>
+              <div class="rsContent">
+                  <div class="innerDiv">
+<!--
+                      <img src="files/images/images/listImg1.png" style="position: absolute; top: 0; right: 0;">
+                      <img src="files/images/images/listImg1.png" style="position: absolute; bottom: 0; left: 0;">
+-->
+<!--                      <div class="rsTitle"></div>-->
+                      <div class="rsScroll" style="padding-top: 20px;">
+                          <div class="addBtn"></div>
+<!--                          <div class="reduceBtn" style="display: none;" onClick="delMc();"></div>-->
+                      </div>
+                  </div>
+              </div>
+              <div class="rsBottom">
+                  <div class="innerDiv">
+                      <img src="files/images/new/v2/Asset-21.png" class="btnDone2" onClick="showInfo();">
+                  </div>
+              </div>
+          </div>
+      </div>
+      
+    <div class="sleeping_content">
+<!--
+    	<div class="guide">
+    		<div class="guide_bg"></div>
+    		<img src="files/guide.gif">
+    	</div>	
+-->
+        
+        <div class="toolBar">
+            <div class="innerDiv">
+                <img src="files/images/new/v2/v3/Asset-76.png" class="btnBack" onClick="backMyComi();">
+                <img src="files/images/new/v2/v3/Asset-74.png" class="btnDone" onClick="addComi();">
+                <div class="pnTitle"></div>
+            </div>
+        </div>
+        
+        <!-- 项目内容 -->
+        <div id="content"></div>
+        
+        <div class="select">
+        	<div class="select_main">
+        		<div class="saveHidden" style="display:none;"></div>
+        		<div class="arrow_bg"><div class="arrow"></div></div>
+	        	<div class="select_container">
+	        		<div class="select_box">
+	        			<div class="select_item people">
+                            <div class="manSel">
+                                <img src="files/images/man/hair/1.png">
+                                <img src="files/images/man/hair/2.png">
+                                <img src="files/images/man/hair/3.png">
+                                <img src="files/images/man/hair/4.png">
+                                <img src="files/images/man/hair/5.png">
+                                <img src="files/images/man/hair/6.png">
+                                <img src="files/images/man/hair/7.png">
+                                <img src="files/images/man/hair/8.png">
+                                <img src="files/images/man/hair/9.png">
+                                <img src="files/images/man/hair/10.png">
+                                <img src="files/images/man/hair/11.png">
+                                <img src="files/images/man/hair/12.png">
+                                <img src="files/images/man/hair/13.png">
+                                <img src="files/images/man/hair/14.png">
+                                <img src="files/images/man/hair/15.png">
+                                <img src="files/images/man/hair/16.png">
+                                <img src="files/images/man/hair/17.png">
+                                <img src="files/images/man/hair/18.png">
+                                <img src="files/images/man/hair/19.png">
+                                <img src="files/images/man/hair/20.png">
+                                <img src="files/images/man/hair/21.png">
+                                <img src="files/images/man/hair/22.png">
+                                <img src="files/images/man/hair/23.png">
+                                <img src="files/images/man/hair/24.png">
+                                <img src="files/images/man/hair/25.png">
+                                <img src="files/images/man/hair/26.png">
+                                <img src="files/images/man/hair/27.png">
+                                <img src="files/images/man/hair/28.png">
+                                <img src="files/images/man/hair/29.png">
+                                <img src="files/images/man/hair/30.png">
+                                <img src="files/images/man/hair/31.png">
+                                <img src="files/images/man/hair/32.png">
+                                <img src="files/images/man/hair/33.png">
+                                <img src="files/images/man/hair/34.png">
+                                <img src="files/images/man/hair/35.png">
+                            </div>
+<!--
+	        				<div class="select_guide">
+			        			<div class="guide_tri"></div>
+			        		</div>
+-->
+		        			<ul class="select_people" style="display: none;">
+		        				<li>
+		        					<div class="li_bg"></div>
+		        				</li>
+		        			</ul>
+	        			</div>
+<!--
+	        			<div class="select_item facingTo">	
+		        			<ul class="man_facingTo">
+		        				<li class="active"><div class="li_bg"></div><div class="li_text">左</div></li>
+		        				<li><div class="li_bg"></div><div class="li_text">右边</div></li>
+		        			</ul>
+		        			<ul class="woman_facingTo">
+		        				<li class="active"><div class="li_bg"></div><div class="li_text">左</div></li>
+		        				<li><div class="li_bg"></div><div class="li_text">右边</div></li>
+		        			</ul>
+	        			</div>
+-->
+	        			<div class="select_item cloth">
+	        				<ul class="man_cloth">
+	        					<li class="active"><div class="li_bg"></div><div class="li_text"></div></li>
+                                <li><div class="li_bg"></div><div class="li_text"></div></li>
+                                <li><div class="li_bg"></div><div class="li_text"></div></li>
+                                <li><div class="li_bg"></div><div class="li_text"></div></li>
+	        					<li><div class="li_bg"></div><div class="li_text"></div></li>
+	        					<li><div class="li_bg"></div><div class="li_text"></div></li>
+	        					<li><div class="li_bg"></div><div class="li_text"></div></li>
+	        					<li><div class="li_bg"></div><div class="li_text"></div></li>
+	        					<li><div class="li_bg"></div><div class="li_text"></div></li>
+	        					<li><div class="li_bg"></div><div class="li_text"></div></li>
+	        					<li><div class="li_bg"></div><div class="li_text"></div></li>
+	        					<li><div class="li_bg"></div><div class="li_text"></div></li>
+	        					<li><div class="li_bg"></div><div class="li_text"></div></li>
+                                <li><div class="li_bg"></div><div class="li_text"></div></li>
+                                <li><div class="li_bg"></div><div class="li_text"></div></li>
+                                <li><div class="li_bg"></div><div class="li_text"></div></li>
+                                <li><div class="li_bg"></div><div class="li_text"></div></li>
+                                <li><div class="li_bg"></div><div class="li_text"></div></li>
+                                <li><div class="li_bg"></div><div class="li_text"></div></li>
+                                <li><div class="li_bg"></div><div class="li_text"></div></li>
+                                
+                                <li><div class="li_bg"></div><div class="li_text"></div></li>
+                                <li><div class="li_bg"></div><div class="li_text"></div></li>
+                                <li><div class="li_bg"></div><div class="li_text"></div></li>
+                                <li><div class="li_bg"></div><div class="li_text"></div></li>
+                                <li><div class="li_bg"></div><div class="li_text"></div></li>
+                                <li><div class="li_bg"></div><div class="li_text"></div></li>
+                                <li><div class="li_bg"></div><div class="li_text"></div></li>
+                                <li><div class="li_bg"></div><div class="li_text"></div></li>
+                                <li><div class="li_bg"></div><div class="li_text"></div></li>
+                                <li><div class="li_bg"></div><div class="li_text"></div></li>
+                                <li><div class="li_bg"></div><div class="li_text"></div></li>
+                                <li><div class="li_bg"></div><div class="li_text"></div></li>
+                                <li><div class="li_bg"></div><div class="li_text"></div></li>
+                                <li><div class="li_bg"></div><div class="li_text"></div></li>
+                                <li><div class="li_bg"></div><div class="li_text"></div></li>
+	        				</ul>
+	        				<ul class="woman_cloth">
+	        					<li class="active"><div class="li_bg"></div><div class="li_text"></div></li>
+	        					<li><div class="li_bg"></div><div class="li_text"></div></li>
+	        				</ul>
+	        			</div>
+	        			<div class="select_item hair">
+	        				<ul class="man_hair">
+	        					<li class="active"><div class="li_bg"></div><div class="li_text"></div></li>
+	        					<li><div class="li_bg"></div><div class="li_text"></div></li>
+	        					<li><div class="li_bg"></div><div class="li_text"></div></li>
+	        					<li><div class="li_bg"></div><div class="li_text"></div></li>
+	        					<li><div class="li_bg"></div><div class="li_text"></div></li>
+	        					<li><div class="li_bg"></div><div class="li_text"></div></li>
+	        					<li><div class="li_bg"></div><div class="li_text"></div></li>
+	        					<li><div class="li_bg"></div><div class="li_text"></div></li>
+	        					<li><div class="li_bg"></div><div class="li_text"></div></li>
+	        					<li><div class="li_bg"></div><div class="li_text"></div></li>
+	        					<li><div class="li_bg"></div><div class="li_text"></div></li>
+	        					<li><div class="li_bg"></div><div class="li_text"></div></li>
+	        					<li><div class="li_bg"></div><div class="li_text"></div></li>
+	        					<li><div class="li_bg"></div><div class="li_text"></div></li>
+                                <li><div class="li_bg"></div><div class="li_text"></div></li>
+                                <li><div class="li_bg"></div><div class="li_text"></div></li>
+	        					<li><div class="li_bg"></div><div class="li_text"></div></li>
+	        					<li><div class="li_bg"></div><div class="li_text"></div></li>
+	        					<li><div class="li_bg"></div><div class="li_text"></div></li>
+	        					<li><div class="li_bg"></div><div class="li_text"></div></li>
+	        					<li><div class="li_bg"></div><div class="li_text"></div></li>
+	        					<li><div class="li_bg"></div><div class="li_text"></div></li>
+	        					<li><div class="li_bg"></div><div class="li_text"></div></li>
+	        					<li><div class="li_bg"></div><div class="li_text"></div></li>
+                                <li><div class="li_bg"></div><div class="li_text"></div></li>
+                                <li><div class="li_bg"></div><div class="li_text"></div></li>
+	        					<li><div class="li_bg"></div><div class="li_text"></div></li>
+	        					<li><div class="li_bg"></div><div class="li_text"></div></li>
+	        					<li><div class="li_bg"></div><div class="li_text"></div></li>
+	        					<li><div class="li_bg"></div><div class="li_text"></div></li>
+	        					<li><div class="li_bg"></div><div class="li_text"></div></li>
+	        					<li><div class="li_bg"></div><div class="li_text"></div></li>
+	        					<li><div class="li_bg"></div><div class="li_text"></div></li>
+                                <li><div class="li_bg"></div><div class="li_text"></div></li>
+	        					<li><div class="li_bg"></div><div class="li_text"></div></li>
+	        				</ul>
+	        				<ul class="woman_hair">
+	        					<li class="active"><div class="li_bg"></div><div class="li_text"></div></li>
+	        					<li><div class="li_bg"></div><div class="li_text"></div></li>
+	        					<li><div class="li_bg"></div><div class="li_text"></div></li>
+	        				</ul>
+	        			</div>
+	        			<div class="select_item room">
+	        				<ul>
+	        					<li class="active"><div class="li_bg"></div><div class="li_text"></div></li>
+	        					<li><div class="li_bg"></div><div class="li_text"></div></li>
+	        					<li><div class="li_bg"></div><div class="li_text"></div></li>
+	        					<li><div class="li_bg"></div><div class="li_text"></div></li>
+	        					<li><div class="li_bg"></div><div class="li_text"></div></li>
+                                <li><div class="li_bg"></div><div class="li_text"></div></li>
+                                <li><div class="li_bg"></div><div class="li_text"></div></li>
+	        					<li><div class="li_bg"></div><div class="li_text"></div></li>
+                                <li><div class="li_bg"></div><div class="li_text"></div></li>
+	        				</ul>
+	        			</div>
+	        			<div class="select_item others">
+	        				<ul>
+	        					<li style="display: none;"><div class="li_bg"></div><div class="li_text"></div></li>
+	        					<li><div class="li_bg"></div><div class="li_text"></div></li>
+	        					<li><div class="li_bg"></div><div class="li_text"></div></li>
+	        					<li><div class="li_bg"></div><div class="li_text"></div></li>
+	        					<li><div class="li_bg"></div><div class="li_text"></div></li>
+	        					<li><div class="li_bg"></div><div class="li_text"></div></li>
+	        					<li><div class="li_bg"></div><div class="li_text"></div></li>
+	        					<li><div class="li_bg"></div><div class="li_text"></div></li>
+	        					<li><div class="li_bg"></div><div class="li_text"></div></li>
+	        					<li><div class="li_bg"></div><div class="li_text"></div></li>
+	        					<li><div class="li_bg"></div><div class="li_text"></div></li>
+	        					<li><div class="li_bg"></div><div class="li_text"></div></li>
+	        					<li><div class="li_bg"></div><div class="li_text"></div></li>
+	        					<li><div class="li_bg"></div><div class="li_text"></div></li>
+	        					<li><div class="li_bg"></div><div class="li_text"></div></li>
+	        					<li><div class="li_bg"></div><div class="li_text"></div></li>
+	        					<li><div class="li_bg"></div><div class="li_text"></div></li>
+                                <li><div class="li_bg"></div><div class="li_text"></div></li>
+	        					<li><div class="li_bg"></div><div class="li_text"></div></li>
+	        					<li><div class="li_bg"></div><div class="li_text"></div></li>
+	        					<li><div class="li_bg"></div><div class="li_text"></div></li>
+                                <li><div class="li_bg"></div><div class="li_text"></div></li>
+	        					<li><div class="li_bg"></div><div class="li_text"></div></li>
+	        					<li><div class="li_bg"></div><div class="li_text"></div></li>
+	        					<li><div class="li_bg"></div><div class="li_text"></div></li>
+                                <li><div class="li_bg"></div><div class="li_text"></div></li>
+	        					<li><div class="li_bg"></div><div class="li_text"></div></li>
+	        					<li><div class="li_bg"></div><div class="li_text"></div></li>
+	        					<li><div class="li_bg"></div><div class="li_text"></div></li>
+	        				</ul>
+	        			</div>
+                        <div class="select_item text">
+                            <div class="outer">
+                                 <img src="files/images/t1.png">
+                                <img src="files/images/t2.png">
+                                <img src="files/images/t3.png">
+                                <img src="files/images/t4.png">
+                                <img src="files/images/t5.png">
+                                <img src="files/images/t6.png">
+                                
+                                <img src="files/images/t7.png">
+                                <img src="files/images/t8.png">
+                                <img src="files/images/t9.png">
+                                <img src="files/images/t10.png">
+                                <img src="files/images/t11.png">
+                            </div>
+                        </div>
+	        		</div>
+	        	</div>
+        	</div>
+        	<div class="select_bar">
+        		<!-- 选择栏 -->
+    			<div class="scroll_bg"></div>
+        		<div class="scroll_bar">
+        			<ul>
+	        			<li class="selected">
+	        				<div class="icon" onClick="showPeople();"></div>
+	        			</li>
+	        			<li>
+	        				<div class="icon" onClick="showTxt();"></div>
+	        			</li>
+	        			<li>
+	        				<div class="icon" onClick="showTool();"></div>
+	        			</li>
+<!--						<div class="black_icon"></div>-->
+        			</ul>
+        		</div>
+        	</div>
+        </div>
+        
+        <div class="textBg" style="display: none;"></div>
+        <div class="textInput textInput1" id="textInput" style="display: none;">
+            <div class="innerDiv">
+                <textarea type="text">请输入文字</textarea>
+            </div>
+        </div>
+        <div class="textBtns" style="display: none;">
+            <div class="innerDiv">
+                <div class="textDone" onClick="addText();"></div>
+                <div class="textCancel" onClick="cancelText();"></div>   
+            </div>
+        </div>
+        <div class="textCanvas" style="display: none;" id="textCanvas"></div>
+        
+        <div class="result_img">
+        	<div class="saved_guide"></div>
+        	<div class="a_saved_guide"></div>
+        </div>
+        <div class="saveDiv" style="display: none;">
+            <div class="sdTitle"></div>
+            <div class="sdName"></div>
+        </div>
+        <div class="saved_img">
+        	
+        </div>
+    </div>
+    
+</div>
+    
+<div class="loading" style="display: none;">
+    <img src="files/images/images/loading.gif">    
+</div>
+    
+<div class="sharePop" style="display: none;" ontouchend="$(this).fadeOut(700);">
+    <div class="shareImg"></div>    
+</div>
+    
+<div class="note" style="display: none;" ontouchend="$(this).fadeOut(700);">
+    <div class="noteImg"></div>    
+</div>
+    
+<div class="rule" style="display: none;">
+    <div class="ruleImg">
+        <div class="innerDiv">
+            <div class="ruleClose"  ontouchend="$('.rule').fadeOut(700);"></div>
+        </div>
+    </div>    
+</div>
+    
+<div class="infoPop" style="display: none;">
+    <div class="innerDiv">
+        <div class="infoType1">
+            <div class="innerDiv">
+                <input type="text" class="itTxt itTxt1" maxlength="11">
+                <input type="text" class="itTxt itTxt2" maxlength="15">
+                <input type="text" class="itTxt itTxt3" maxlength="20">
+                <input type="tel" class="itTxt itTxt4" maxlength="11">
+                <div class="itBtn1" onClick="closeInfo();"></div>
+                <div class="itBtn2" onClick="submitInfo();"></div>
+            </div>
+        </div>
+        <div class="infoType2" style="display: none;">
+            <div class="innerDiv">
+                <input type="text" class="itTxt itTxt5" maxlength="11">
+                <input type="text" class="itTxt itTxt6" maxlength="15">
+                <div class="itBtn3" onClick="closeInfo();"></div>
+                <div class="itBtn4" onClick="submitInfo();"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="files/zepto.min.js"></script>
+<script src="files/jquery.js"></script>
+<script src="files/Animate.min.js"></script>
+<script src="files/Tween.min.js"></script>
+<script src="files/pixi.min.js"></script>
+<script src="files/Scroller.min.js"></script>
+<script src="files/display.min.js"></script>
+<script src="files/rng.js"></script>
+<script src="files/html2canvas.min.js"></script>
+    
+    <script src="//res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+    <script src="js/wx.js"></script>
+
+<script>
+$(".others ul").width(3700)
+    var isPosted=false;//是否提交过信息
+    
+    var firstRoom=0;
+    
+    var comiNumb=0;
+    
+    var iPn,iPa,iName,iTel,iId;
+  
+    $(document).ready(function(){
+//       $.ajax({
+//            'url': '/is_oauth.php',
+//            'type': 'post',
+//            'async': false,
+//            'dataType': 'json',
+//            'success': function (r) {
+//                if(r.ret!=0){
+//                    window.location.href="/";
+//                }
+//                if(r.has_posted!=0){
+//                    isPosted=true;
+//                    $('.infoType1').hide();
+//                    $('.infoType2').show();
+//                }
+//            }
+//        })
+//    
+//        wxShare({
+//                'title': '北京 遇见 RNG',
+//                'desc': '软泥怪小剧场',
+//                'imgUrl': 'http://h5.royalgroups.cn/share.jpg',
+//                'link': 'http://h5.royalgroups.cn'
+//            })
+        
+//        $(document).one('touchstart',function(){
+//            document.getElementById('bgm').play();
+//        });
+        
+       var wh=$(window).height();
+        $('.pageMid').height(wh-100);
+        $('.rsContent').height(wh-280); 
+        $('.rsScroll').height(wh-280); 
+        var cpt=(wh-280-165-750)/2;
+        if(cpt>0){
+          $('#content').css('padding-top',cpt+'px');  
+        }
+        var sbtop=(wh-1180)+986;
+        $('.first_page .start, .first_page .start2').css('top',sbtop+'px');
+        var ib1top=(wh-1180)/2+687;
+        $('.indexBtn1').css('top',ib1top+'px');
+        var ib2top=(wh-1180)/2+690;
+        $('.indexBtn2s').css('top',ib2top+'px');
+        
+        $('.rsInit').on('click',function(){
+            $('.rsInit').removeClass('rsInitOn');
+//            $(this).addClass('rsInitOn');
+            var rt=parseInt($(this).attr('relr'));
+            firstRoom=rt;
+            $('.room li').eq(rt).click();
+            
+            comiNumb=0;
+            comiAttr=[];
+            $('.myCominInit').remove();
+            $('.reduceBtn').hide();
+            $('.addBtn').show();
+            
+            $('.myComin').fadeIn(700);
+//            $('.start').click();
+            $('.roomSel').fadeOut(700);
+        })
+        
+        $('.addBtn').click(function(){
+            comiNumb++;
+            if(comiNumb==1){
+                $('.start').click();
+                $('.myComin').hide();
+            }else{
+                $('.myComin').hide();
+                $('.sleeping_content').fadeIn(700,function(){
+                    if(comiNumb==4){
+                        $('.addBtn').hide();
+                    }
+                });
+            }
+        });
+        
+        $('.manSel img').click(function(){
+            $('.manSel img').removeClass('on');
+            $(this).addClass('on');
+            var tIndex=$('.manSel img').index($(this));
+            $('.select_people li').eq(0).click();
+//            console.log($('.man_hair li').eq(15));
+            $('.man_hair li').eq(tIndex).click();
+            $('.select_item').hide();
+            $('.select_item.cloth').show();
+        });
+        
+        $('.text img').click(function(){
+            var tIndex=$('.text img').index($(this))+1;
+            $('.textInput').removeClass('textInput1 textInput2 textInput3 textInput4 textInput5 textInput6 textInput7 textInput8 textInput9 textInput10 textInput11');
+            $('.textInput').addClass('textInput'+tIndex);
+            $('.textInput').removeClass('zoom');
+            if(tIndex>1){
+                $('.textInput').addClass('zoom');
+            }
+        });
+        
+        $('.textInput textarea').click(function(){
+            if($.trim($(this).val())=='请输入文字'){
+                $(this).val('');
+            }
+        });
+    })
+    
+function backMyComi(){
+    comiNumb=comiNumb-1;
+    $('.myComin').show();
+    $('.sleeping_content').hide();
+}
+    
+function start2(){
+    $('.first_page').fadeOut(500,function(){
+                $('.roomSel').fadeIn(500,function(){
+                    $('.note').fadeIn(700);
+                });
+            })
+}
+    
+function showPeople(){
+    $(".scroll_bar").animate({ scrollLeft: "0px" }, 300);
+    $('.select_item').hide();
+    $('.select_item.people').show();
+    $('.select .select_bar .scroll_bar ul .black_icon').css('left','0px');
+    if($('.select_main').hasClass('close')){
+            $('.arrow').click();
+        }
+}
+    
+function showTool(){
+    $(".scroll_bar").animate({ scrollLeft: "0px" }, 300);
+    $('.select_item').hide();
+    $('.select_item.others').show();
+//    $('.select .select_bar .scroll_bar ul .black_icon').css('left','500px');
+    if($('.select_main').hasClass('close')){
+            $('.arrow').click();
+        }
+}
+    
+function showTxt(){
+    $(".scroll_bar").animate({ scrollLeft: "0px" }, 300);
+    $('.select_item').hide();
+    $('.textInput').removeClass('zoom');
+    $('.select_item.text').show();
+//    $('.select .select_bar .scroll_bar ul .black_icon').css('left','250px');
+    $('.textInput').removeClass('textInput1 textInput2 textInput3 textInput4 textInput5 textInput6 textInput7 textInput8 textInput9 textInput10 textInput11');
+    $('.text').animate({ scrollLeft: "0px" }, 300);
+    $('.textInput').addClass('textInput1');
+    $('.textInput,.textBg,.textBtns').show();
+    if($('.select_main').hasClass('close')){
+            $('.arrow').click();
+        }
+}
+    
+function cancelText(){
+    $('.textInput,.textBg,.textBtns').hide();
+    $('.select_item').hide();
+    $('.textInput').removeClass('zoom');
+    $('.textInput textarea').val('请输入文字');
+    $('.textCanvas').html('');
+    if(!$('.select_main').hasClass('close')){
+            $('.arrow').click();
+        }
+}
+    
+var csize={};
+function addText(){
+    showLoading();
+    if($('.textInput').hasClass('textInput1')){
+        csize.w=750;
+        csize.h=228;
+    } else if($('.textInput').hasClass('textInput2')){
+        csize.w=250;
+        csize.h=149;
+    } else if($('.textInput').hasClass('textInput3')){
+        csize.w=250;
+        csize.h=146;
+    } else if($('.textInput').hasClass('textInput4')){
+        csize.w=250;
+        csize.h=144;
+    } else if($('.textInput').hasClass('textInput5')){
+        csize.w=250;
+        csize.h=146;
+    } else if($('.textInput').hasClass('textInput6')){
+        csize.w=250;
+        csize.h=149;
+    } else if($('.textInput').hasClass('textInput7')){
+        csize.w=250;
+        csize.h=149;
+    } else if($('.textInput').hasClass('textInput8')){
+        csize.w=250;
+        csize.h=146;
+    } else if($('.textInput').hasClass('textInput9')){
+        csize.w=250;
+        csize.h=144;
+    } else if($('.textInput').hasClass('textInput10')){
+        csize.w=250;
+        csize.h=146;
+    } else if($('.textInput').hasClass('textInput11')){
+        csize.w=250;
+        csize.h=149;
+    }
+    $('.textInput').removeClass('zoom');
+    iosMusic();
+    html2canvas(document.querySelector("#textInput"),{width:csize.w,height:csize.h,scale:1,backgroundColor:null}).then(canvas => {
+        document.getElementById('textCanvas').appendChild(canvas);
+        var tc=document.getElementsByTagName('canvas');
+        To[0]=tc[1].toDataURL('images/png');
+        if(!$('.select_main').hasClass('close')){
+            $('.arrow').click();
+        }
+        $('.others li').eq(0).click();
+        $('.textInput,.textBg,.textBtns').hide();
+        $('.textInput textarea').val('请输入文字');
+        $('.textCanvas').html('');
+        closeLoading();
+    });
+}
+    
+var comiAttr=[];
+function addComi(){
+    $('.saveHidden').click();
+    showPeople();
+    $('.select').show();
+    setTimeout(function(){
+        $('.myComin .addBtn').before("<div class='myCominInit' ontouchend='chooseMc(this)'><div class='innerDiv'><img src='"+$(comiAttr[(comiNumb-1)]).attr('src')+"'><div class='scTxt'>"+comiNumb+"</div><div class='delComin' onClick='delMc()'><div></div></div>");
+    },500);
+    $('.myComin').fadeIn(700);
+    $('.sleeping_content').fadeOut(700);
+}
+    
+function chooseMc(e){
+    $('.myCominInit').removeClass('rsInitOn');
+            $(e).addClass('rsInitOn');
+            $('.reduceBtn').show();
+}
+
+function showInfo(){
+    if(comiAttr.length<1){
+        alert('请先插入一副漫画');
+        return;
+    } else {
+        $('.infoPop').show();
+    }
+}
+function submitInfo(){
+    if(!isPosted){//未提交过手机号
+        iPn=$.trim($('.itTxt1').val());
+        iPa=$.trim($('.itTxt2').val());
+        iName=$.trim($('.itTxt3').val());
+        iTel=$.trim($('.itTxt4').val());
+        if(iPn==''){
+            alert('请输入作品名称');
+            return false;
+        }else if(iPa==''){
+            alert('请输入作者昵称');
+            return false;
+        }else if(iName==''){
+            alert('请输入真实姓名');
+            return false;
+        }else if(iTel==''){
+            alert('请输入电话号码');
+            return false;
+        }else if(!(/^1[34578]\d{9}$/.test(iTel))){
+            alert('请输入正确的手机号码');
+            return false;
+        }else{
+            showLoading();
+            $.ajax({
+                'url': '/post.php',
+                'type': 'post',
+                'async': false,
+                data:{
+                    name:iName,
+                    tel:iTel
+                },
+                'dataType': 'json',
+                'success': function (r) {
+//                    console.log(r);
+                }
+            })
+            closeInfo();
+            savePic();
+        }
+    }else{//提交过手机号
+        iPn=$.trim($('.itTxt5').val());
+        iPa=$.trim($('.itTxt6').val());
+        if(iPn==''){
+            alert('请输入作品名称');
+            return false;
+        }else if(iPa==''){
+            alert('请输入作者昵称');
+            return false;
+        } else{
+            showLoading();
+            closeInfo();
+            savePic();
+        }
+    }
+}
+function closeInfo(){
+    $('.infoPop').fadeOut(700);
+}
+    
+var isSaved=false;
+function savePic(){
+    if(!isSaved){
+        isSaved=true;
+        $('.myComin').hide();
+        $('.sleeping_content').show();
+        $('.sdTitle').text(iPn);
+        $('.sdName').text('作者:'+iPa);
+        $('.select').hide();
+        $('#content').fadeOut(700);
+        setTimeout(function(){
+            for(var i=0,iLen=comiAttr.length;i<iLen;i++){
+                $('.saveDiv').append(comiAttr[i]);
+            }
+            $('.saveDiv').append("<img src='files/images/qrImg.png'>");
+            $('.saveDiv').show();
+            $('.sleeping_content').css({'overflow-x':'hidden','overflow':'auto'});
+            setTimeout(function(){
+                iosMusic();
+                html2canvas(document.querySelector(".saveDiv"),{width:750,height:210+750*comiAttr.length+300,scale:1,backgroundColor:null}).then(canvas => {
+                    document.getElementById('textCanvas').appendChild(canvas);
+                    var tc=document.getElementsByTagName('canvas');
+                    var edsrc=tc[1].toDataURL('images/png');
+                    $('.saveDiv').addClass('endSaveDiv');
+                    $('.saveDiv').html("<div class='epDiv'><img src='"+edsrc+"'></div>");
+                    $('.epDiv').before("<div class='rsTop'><div class='innerDiv'><div class='topTitle'>"+"作品详情"+"</div></div></div>");
+                    $('.saveDiv').append("<div class='rsBottom'><div class='innerDiv'><img src='files/images/new/v2/v3/Asset-87.png' class='endBtn1' onclick='endBtnClick1();'><img src='files/images/new/v2/Asset-61.png' class='endBtn2' onclick='endBtnClick2();'></div></div>");
+                    var wh=$(window).height();
+                    $('.epDiv').css({width:'100%',height:(wh-280)+'px','overflow-x':'hidden','overflow-y':'auto'});
+                    //保存作品
+                    $.ajax({
+                        'url': '/upload.php',
+                        'type': 'post',
+                        'async': false,
+                        data:{
+                            images:[edsrc],
+                            title:iPn,
+                            author:iPa
+                        },
+                        'dataType': 'json',
+                        'success': function (r) {
+//                            alert(JSON.stringify(r));
+                            iId=r.data.id;
+                            wxShare({
+                                'title':iPa+'创作了'+iPn+',赶快前来观看吧！',
+                                'desc': '软泥怪小剧场',
+                                'imgUrl': 'http://h5.royalgroups.cn/share.jpg',
+                                'link': 'http://h5.royalgroups.cn/detail.html?id='+r.data.id
+                            })
+                            closeLoading();
+                        }
+                    })
+                });
+            },500)
+        },500);
+    }
+}
+    
+function endBtnClick1(){
+    window.location.href='/list.html?id='+iId;
+}
+function endBtnClick2(){
+    $('.sharePop').fadeIn(700);
+}
+    
+function backRoomSel(){
+    if(comiAttr.length==0){
+        $('.myComin').hide();
+        $('.roomSel').fadeIn(700);
+    } else {
+        var bc=confirm("返回选择场景会导致你已经创作的漫画被清空，是否继续？");
+        if(bc){
+            $('.myComin').hide();
+            $('.roomSel').fadeIn(700);
+        }else{
+            return false;
+        }
+    }
+}
+    
+function delMc(){
+    var mcIndex=$('.myCominInit').index($('.myCominInit.rsInitOn'));
+    var dc=confirm("确定要删除第"+(mcIndex+1)+"副漫画吗？");
+        if(dc){
+            $('.myCominInit.rsInitOn').remove();
+            $('.reduceBtn').hide();
+            comiAttr.splice(mcIndex,1);
+            comiNumb=comiNumb-1;
+            console.log(comiAttr.length)
+            if(comiAttr.length>0){
+              for(var i=0,iLen=comiAttr.length;i<iLen;i++){
+                  $('.myCominInit').eq(i).find('.scTxt').text(i+1);
+              };
+            }
+            $('.addBtn').show();
+        }else{
+            return false;
+        }             
+}
+    
+function showLoading(){
+    $('.loading').show();
+}
+function closeLoading(){
+    $('.loading').hide();
+}
+    
+function iosMusic(){  
+  var agent = navigator.userAgent.toLowerCase() ;//判断手机系统  
+  // console.log(agent);  
+  var version;  
+  if(agent.indexOf("like mac os x") > 0){  
+      //ios  
+      var regStr_saf = /os [\d._]*/gi ;  
+      var verinfo = agent.match(regStr_saf) ;  
+      version = (verinfo+"").replace(/[^0-9|_.]/ig,"").replace(/_/ig,".");//获取具体的系统版本号  
+      console.log(version)  
+      var typeNum = version.split(".")[0];//获取系统版本号的第一位数字  
+      console.log(typeNum)  
+      if(typeNum >= 11){  
+        $("#bgm").removeAttr("autoplay");  
+      }  
+  }  
+}
+</script>
+</body>
+</html>
